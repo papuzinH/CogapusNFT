@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css2?family=Mallanna&display=swap);
+* {
+	font-family: Mallanna, sans-serif;
+	scroll-behavior: smooth;
+}
+.App.App {
+	background-color: #282c34;
+	min-height: 100vh;
+	font-size: 16px;
+	color: #fff;
+  overflow-x: hidden;
+}
+.wallet-client {
+	text-align: center;
+	margin: 50px 0;
+	background-color: #000;
+	padding: 50px;
+	border-radius: 60px;
+	width: 300px;
+	height: 200px;
+}
+
+.mint_live_circle_sect {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 140px;
+	width: 140px;
+	border-radius: 50%;
+	border: none;
+	background: #ffe600;
+	position: absolute;
+	z-index: 3;
+  box-shadow: 0 0 10px 5px #ffe600;
+  left: 55%;
+  top: 23%
+}
+
+.mint_live_circle_sect img {
+  vertical-align: middle;
+  height: auto;
+}
+.mint_live_circle {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+.mint_live_circle span:first-child {width: 30%;}
+
+.mint_live_text {
+  position: absolute;
+	animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+aside.svelte-rntogh {
+	z-index: 10;
+}
+
+section.svelte-rntogh{
+	background: #222 !important;
+    color: #fff !important;
+    padding: 3em 3em 0 3em !important;
+}
+
+.home{position: relative;}
+
+header.svelte-8i8o6j {
+	margin-bottom: 2em !important;
+    position: relative !important;
+    border-bottom: 1px solid green !important;
+    padding-bottom: 1em !important;
+}
+
+div.svelte-8i8o6j, div.svelte-w9ftfy span.svelte-w9ftfy, p.svelte-w9ftfy.svelte-w9ftfy, button.svelte-fnc3e1 {display: none !important;}
+
+

@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.mint {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../public/assets/Cuadro-Cogapus.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mint_overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.mint_content {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: -150px;
+}
+
+.mint_content h2 {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 5em;
+    margin-bottom: 0;
+}
+
+.mint_content h3 {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-size: 2em;
+    color: #b5e41c;
+    margin: 0;
+    text-shadow: 0 0 10px #fff
+}
+
+
+.mint_content img {
+    position: absolute;
+    top: 180px;
+    width: 80%
+}
+
+.mint_button_container{
+    width: 50%;
+    position: relative;
+    z-index: 3;
+}
+
+.mint_calc_container {
+    width: 50%;
+    top: 30px;
+    border-radius: 2em;
+    padding: 2em;
+    background-color: rgb(24, 24, 24);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mint_calc_container p {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2em;
+    margin-bottom: 0;
+    line-height: 1;
+    margin-top: 0;
+}
+
+.counter_mint {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 2em 0;
+    margin-top: 1em;
+    border-bottom: 2px solid #88ea4637;   
+}
+
+.counter_mint button {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 3px solid #88EA46;
+    background-color: #88EA46;
+    color: #fff;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.counter_mint button:hover {
+    background-color: transparent;
+    transition: 0.2s;
+}
+
+.total_price {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+.total_price p {
+    font-family: Mallanna, sans-serif;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.total_price p:last-child {
+    font-weight: bold;
+    color: #b5e41c;
+}
+
+.mint_button {
+    font-family: Mallanna, sans-serif;
+    font-size: 1.5em;
+    line-height: 1;
+    padding: 0.5em 2em;
+    background-color: #368104;
+    color: #fff;
+    border-radius: 5px;
+    border: 2px solid #368104;
+    cursor: pointer;
+    margin-top: 2em;
+    transition: 0.1s;
+    text-transform: uppercase;
+
+}
+
+.mint_button:hover {
+    background-color: #88EA46;
+    border-color: #88EA46;
+    transition: 0.1s;
+}
+
+.mint_button_disabled {
+    font-family: Mallanna, sans-serif;
+    font-size: 1.5em;
+    line-height: 1;
+    padding: 0.5em 2em;
+    background-color: #368104;
+    color: #fff;
+    border-radius: 5px;
+    border: 2px solid #368104;
+    cursor: pointer;
+    margin-top: 2em;
+    transition: 0.1s;
+    text-transform: uppercase;
+    opacity: 0.5;
+    cursor: inherit;
+}

@@ -1,0 +1,20 @@
+.wallet_button {
+    transition: 0.2s;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    font-size: 1.2em;
+    background-color: transparent;
+    border: 2px solid #88EA46;
+    color: #f1f1f1;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.wallet_button:hover {
+    color: #f1f1f1;
+    background-color: #88EA46;
+    border-color: #88EA46;
+    transition: 0.2s;
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px #88EA46;
+}

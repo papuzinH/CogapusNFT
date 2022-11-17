@@ -1,0 +1,40 @@
+.footer{
+    position: absolute;
+    width: 100%;
+    background-color: transparent;
+    bottom: 0;
+    text-align: center;
+    padding-bottom: 50px;
+    z-index: 4;
+}
+
+.footer img {
+    width: 100%;
+}
+
+.footer a {
+    width: 25px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.footer a img {
+    filter: invert();
+}
+
+.footer_socialmedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.footer_logo {
+    width: 20%;
+    margin: 0 auto 50px;
+}
+
+.footer_logo img {
+    width: 100%;
+}

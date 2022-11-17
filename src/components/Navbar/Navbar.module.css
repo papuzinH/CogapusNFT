@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+header {
+   
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    
+}
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #fff;
+    padding: 1em 2em;
+}
+
+.navbar_active {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: 0.5s;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #fff;
+    padding: 1em 2em;
+}
+
+.logo {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.navbar img {
+	width: 60%;
+}
+.navbar_items{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+.navbar_items a {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.1s;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    font-size: 2em;
+}
+
+.navbar_items li a:hover{
+    color: #f1f1f1;
+    background-color: #88EA46;
+    transition: 0.2s;
+    cursor: pointer;
+} 
+.wallet_button {
+    width: 20%;
+    display: flex;
+    justify-content: end;
+}
