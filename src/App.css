@@ -3,6 +3,34 @@
 	font-family: Mallanna, sans-serif;
 	scroll-behavior: smooth;
 }
+
+body {
+    overflow: overlay;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #4a9915
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+	padding: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #4a9915;
+    border-radius: 10px;
+
+  }
+
 .App.App {
 	background-color: #282c34;
 	min-height: 100vh;

@@ -14,9 +14,10 @@ const FAQContainer = () => {
 			/>
 			<div className={styles.faq_container_overlay}></div>
             <Parallax speed={15}
-					translateX={["50px", "50px"]}
+					translateX={["50px", "0px"]}
 					translateY={["-2400px", "400px"]}
-					style={{ width: "100%" }}>
+					scale={["0", "1.5"]}
+					style={{ width: "100%",top: "0"}}>
             <img src={Cogo} alt="cogo" className={styles.cogo} />
             </Parallax>
 			<div className={styles.faq_content}>
