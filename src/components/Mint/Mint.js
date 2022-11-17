@@ -15,6 +15,7 @@ import {
 import { factoryAddress, factoryAbi } from "../../services/onboard/contract";
 import { Tooltip } from "@mui/material";
 import WalletButton from "../WalletButton/WalletButton";
+import MintConfirmed from "../MintConfirmed/MintConfirmed";
 
 const Mint = () => {
 	const [counter, setCounter] = useState(1);
@@ -28,6 +29,9 @@ const Mint = () => {
 		reverse: flip,
 		onRest: () => set(!flip),
 	});
+	const [waitingConfirm, setWaitingConfirm] = useState(false);
+	const [waitingTransaction, setWaitingTransaction] = useState(false);
+	const [transactionConfirmed, setTransactionConfirmed] = useState(false);
 
 	const handleIncrement = () => {
 		setCounter(counter + 1);
@@ -55,8 +59,8 @@ const Mint = () => {
 					return false;
 				});
 			console.log(price);
-			//const valueEth = web3.utils.fromWei(String(price));
-			setTokenPrice(price);
+			const valueEth = web3.utils.fromWei(`${price || 0}`, "ether");
+			setTokenPrice(valueEth);
 		};
 
 		getContract();
@@ -82,6 +86,7 @@ const Mint = () => {
 
 	const handleMint = async () => {
 		console.log("MINT!");
+		setWaitingConfirm(true);
 		try {
 			const myContract = new web3.eth.Contract(factoryAbi, factoryAddress);
 
@@ -123,7 +128,6 @@ const Mint = () => {
 			const total = parseInt(counter) * parseFloat(price);
 			// const totalFixed = parseFloat(total.toFixed(4));
 			// const valueEth = web3.utils.toWei(`${totalFixed}`, 'ether');
-
 			await myContract.methods
 				.mint(mintParams.proof, mintParams.leaf, parseInt(mintParams.count))
 				.send({ from: address, value: total })
@@ -131,6 +135,7 @@ const Mint = () => {
 					// setUserConfirmation(`success`);
 					// setHash(hash);
 					console.log("Transaction Hash", hash);
+					setWaitingTransaction(true);
 				})
 				.once("receipt", function (receipt) {
 					// setBlChainConfirmation(`success`);
@@ -138,16 +143,26 @@ const Mint = () => {
 					//   setSuccess(true);
 					// }, 1000);
 					console.log("Transaction Confirmed", receipt);
+					setTransactionConfirmed(true);
+					setTimeout(() => {
+						setWaitingConfirm(false);
+					}, 2000);
+
 				})
 				.on("error", function (error, receipt) {
 					// handleError(error);
 					console.log("Error", error);
+					setWaitingConfirm(false);
 				});
 		} catch (error) {}
 	};
 
+	console.log("Waiting Confirm", waitingConfirm);
+
 	return (
 		<div id="Mint_section" className={styles.mint}>
+
+			{waitingConfirm && <MintConfirmed transactionConfirmed={transactionConfirmed} waitingTransaction={waitingTransaction} />}	
 			<div className={styles.mint_overlay} />
 
 			<div className={styles.mint_content}>
@@ -165,11 +180,17 @@ const Mint = () => {
 				<div className={styles.mint_calc_container}>
 					<p>How many grams?</p>
 					<div className={styles.counter_mint}>
-						<button disabled={!address} onClick={handleDecrement} className={styles.counter_button}>
+						<button
+							disabled={!address}
+							onClick={handleDecrement}
+							className={styles.counter_button}>
 							<RemoveRoundedIcon />
 						</button>
 						<p>{counter}</p>
-						<button disabled={!address} onClick={handleIncrement} className={styles.counter_button}>
+						<button
+							disabled={!address}
+							onClick={handleIncrement}
+							className={styles.counter_button}>
 							<AddRoundedIcon />
 						</button>
 					</div>
@@ -178,12 +199,14 @@ const Mint = () => {
 						<p>{total} ETH</p>
 					</div>
 					<Tooltip
-						title= {!address ? "You need to connect your wallet to mint" : ""}
+						title={!address ? "You need to connect your wallet to mint" : ""}
 						placement="top"
 						disableFocusListener>
 						<button
 							onClick={handleMint}
-							className={ address ? styles.mint_button : styles.mint_button_disabled}>
+							className={
+								address ? styles.mint_button : styles.mint_button_disabled
+							}>
 							Mint
 						</button>
 					</Tooltip>
