@@ -119,3 +119,9 @@ h3.svelte-8i8o6j{
 	font-weight: 900;
 	font-size: 2em;
 }
+
+@media (max-width: 768px) {
+  * {
+	font-size: 12px;
+  }
+}

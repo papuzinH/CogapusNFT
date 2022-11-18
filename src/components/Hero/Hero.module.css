@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     position: relative;
     padding: 0 4em;
 }
@@ -59,3 +60,15 @@
 .hero_img img {
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 0.5em;
+    }
+    .hero h1 {
+        font-size: 3em;
+    }
+    .hero_content{
+        width: 100%;
+    }
+  }
