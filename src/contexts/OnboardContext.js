@@ -72,7 +72,6 @@ const OnboardProvider = ({ children }) => {
   useEffect(() => {
     retriveLocalStorage();
   }, [retriveLocalStorage]);
-  console.log(address, network, balance, wallet, ens);
 
   return (
     <OnboardContext.Provider

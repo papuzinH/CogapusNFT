@@ -120,8 +120,30 @@ h3.svelte-8i8o6j{
 	font-size: 2em;
 }
 
+@media screen and (max-width: 1200px) {
+	.mint_live_circle_sect {
+		left: 65%;
+	}
+}
+
+
 @media (max-width: 768px) {
   * {
 	font-size: 12px;
   }
+  .mint_live_circle_sect {
+	width: 100px;
+	height: 100px;
+	top: 65%;
+	}	
+	.mint_live_text  img{
+		height: 110px;	
+	}
+	.mint_live_circle span:first-child {
+		width: 30%;
+	}
+	p{
+		font-size: 15px;
+		line-height: 1.5;
+	}
 }

@@ -10,6 +10,7 @@
     background-position: center;
     position: relative;
     overflow: hidden;
+    padding: 0 4em;
 }
 
 .mint_overlay {
@@ -62,6 +63,7 @@
 }
 
 .mint_calc_container {
+    margin: 0 auto;
     width: 50%;
     top: 30px;
     border-radius: 2em;
@@ -168,4 +170,28 @@
     text-transform: uppercase;
     opacity: 0.5;
     cursor: inherit;
+}
+
+@media screen and (max-width: 768px) {
+    .mint {
+        flex-direction: column;
+        height: fit-content;
+        padding: 40px 0;
+    }
+    .mint_content {
+        width: 100%;
+        top: 0;
+        margin-bottom: 30px;
+    }
+    .mint_button_container {
+        width: 100%;
+    }
+    .mint_content h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .mint_calc_container {
+        width: 60%;
+    }
 }

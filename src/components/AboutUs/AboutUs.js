@@ -8,7 +8,7 @@ const AboutUs = () => {
 		<div id="About" className={styles.about_us}>
 			<ParallaxBanner
 				layers={[{ image: HeroImg, speed: -30 }]}
-				style={{ aspectRatio: "2 / 1" }}
+				style={{ height: "100%", position: "absolute" }}
 			/>
 			<div className={styles.about_us_overlay}></div>
 			<div className={styles.about_us_container}>

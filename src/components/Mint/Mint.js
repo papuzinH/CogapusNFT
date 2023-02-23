@@ -9,12 +9,10 @@ import { useSpring, animated } from "react-spring";
 import Web3 from "web3";
 import {
 	useAddress,
-	useWalletProvider,
-	useBalance,
+	useWalletProvider
 } from "../../contexts/OnboardContext";
 import { factoryAddress, factoryAbi } from "../../services/onboard/contract";
 import { Tooltip } from "@mui/material";
-import WalletButton from "../WalletButton/WalletButton";
 import MintConfirmed from "../MintConfirmed/MintConfirmed";
 
 const Mint = () => {
@@ -58,52 +56,21 @@ const Mint = () => {
 				.catch(function (error) {
 					return false;
 				});
-			console.log(price);
 			const valueEth = web3.utils.fromWei(`${price || 0}`, "ether");
 			setTokenPrice(valueEth);
 		};
 
 		getContract();
-	}, [address]);
+	});
 
-	const balance = useBalance();
 	const provider = useWalletProvider();
 	const web3 = new Web3(provider);
 
-	const [userBalance, setUserBalance] = useState(0);
-
-	useEffect(() => {
-		if (address) {
-			if (balance) {
-				const valueEth = web3.utils.fromWei(`${balance}`, "ether");
-				const totalFixed = parseFloat(valueEth).toFixed(4);
-				setUserBalance(totalFixed);
-			}
-		} else {
-			setUserBalance(0);
-		}
-	}, [web3.utils, balance, address]);
-
 	const handleMint = async () => {
-		console.log("MINT!");
 		setWaitingConfirm(true);
 		try {
 			const myContract = new web3.eth.Contract(factoryAbi, factoryAddress);
-
-			const saleStarted = await myContract.methods
-				.saleStarted()
-				.call()
-				.catch(function (error) {
-					return false;
-				});
-
-			const publicSaleStarted = await myContract.methods
-				.merkleEnabled()
-				.call()
-				.catch(function (error) {
-					return false;
-				});
-
+			
 			const price = await myContract.methods
 				.cogoPrice()
 				.call()
@@ -113,12 +80,6 @@ const Mint = () => {
 
 			setTokenPrice(price);
 
-			console.log("Sale Started", saleStarted);
-			console.log("Sale Started", publicSaleStarted);
-			console.log("Price", price);
-
-			const count = 1;
-
 			const mintParams = {
 				proof: ["0x0000000000000000000000000000000000000000"],
 				leaf: "0x0000000000000000000000000000000000000000",
@@ -126,23 +87,13 @@ const Mint = () => {
 			};
 
 			const total = parseInt(counter) * parseFloat(price);
-			// const totalFixed = parseFloat(total.toFixed(4));
-			// const valueEth = web3.utils.toWei(`${totalFixed}`, 'ether');
 			await myContract.methods
 				.mint(mintParams.proof, mintParams.leaf, parseInt(mintParams.count))
 				.send({ from: address, value: total })
 				.once("transactionHash", function (hash) {
-					// setUserConfirmation(`success`);
-					// setHash(hash);
-					console.log("Transaction Hash", hash);
 					setWaitingTransaction(true);
 				})
 				.once("receipt", function (receipt) {
-					// setBlChainConfirmation(`success`);
-					// setTimeout(() => {
-					//   setSuccess(true);
-					// }, 1000);
-					console.log("Transaction Confirmed", receipt);
 					setTransactionConfirmed(true);
 					setTimeout(() => {
 						setWaitingConfirm(false);
@@ -157,7 +108,6 @@ const Mint = () => {
 		} catch (error) {}
 	};
 
-	console.log("Waiting Confirm", waitingConfirm);
 
 	return (
 		<div id="Mint_section" className={styles.mint}>

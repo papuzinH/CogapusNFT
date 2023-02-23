@@ -10,7 +10,7 @@ const FAQContainer = () => {
 		<div id="FAQ" className={styles.faq_container}>
 			<ParallaxBanner
 				layers={[{ image: HeroImg, speed: -30 }]}
-				style={{ aspectRatio: "2 / 1", height: "100%"}}
+				style={{ height: "100%", position: "absolute" }}
 			/>
 			<div className={styles.faq_container_overlay}></div>
             <Parallax speed={15}

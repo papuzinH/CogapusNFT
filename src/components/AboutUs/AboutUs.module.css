@@ -17,10 +17,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+    position: relative;
     top: 0;
+    padding: 8em 2em;
 }
 
 .about_us_container h1 {
@@ -29,6 +28,7 @@
     text-transform: uppercase;
     font-size: 5em;
     color: #fff;
+    margin-top: 0;
 }
 
 .about_us_container span {
@@ -50,8 +50,43 @@
     color: #fff;
 }
 
+.about_us_content p:last-child {
+    margin-bottom: 0;
+}
+
 .about_us_content p > span {
     font-family: Mallanna, sans-serif;
     text-transform: lowercase;
     color: #ffe600;
+}
+
+@media screen and (max-width: 1200px) {
+    .about_us_container {
+        padding: 6em 2em;
+    }
+
+    .about_us_container h1, .about_us_container h1 span {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .about_us_content p span {
+        font-size: 1em;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .about_us_container {
+        padding: 4em 2em;
+    }
+
+    .about_us_container h1, .about_us_container h1 span {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .about_us_content p {
+        margin: 0 0 10px 0;
+    }
 }

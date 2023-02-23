@@ -3,11 +3,11 @@ import styles from "./Hero.module.css";
 import MintisLive from "../../public/assets/mint_live_text.png";
 import Cogo from "../../public/assets/cogo.svg";
 import HeroImg from "../../public/assets/hero_img.png";
-import { Parallax, ParallaxBanner } from "react-scroll-parallax";
+import { Parallax } from "react-scroll-parallax";
 
 const Hero = () => {
 	return (
-		<div className={styles.hero}>
+		<div id="hero" className={styles.hero}>
             
 			<div className={styles.hero_overlay}></div>
 			<div className={styles.hero_content}>
@@ -34,12 +34,12 @@ const Hero = () => {
 					<img src={HeroImg} alt="hero" />
 				</Parallax>
 			</div>
-			<div class="mint_live_circle_sect">
-				<div class="mint_live_circle">
+			<div className="mint_live_circle_sect">
+				<div className="mint_live_circle">
 					<span>
 						<img src={Cogo} alt="" />
 					</span>
-					<span class="mint_live_text rotated-style">
+					<span className="mint_live_text rotated-style">
 						<img src={MintisLive} alt="" />
 					</span>
 				</div>

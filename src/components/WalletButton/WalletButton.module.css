@@ -18,3 +18,10 @@
     cursor: pointer;
     box-shadow: 0 0 10px 5px #88EA46;
 }
+
+@media screen and (max-width: 768px) {
+    .wallet_button {
+        margin-top: 20px;
+       font-size: 1.8em;
+    }
+}

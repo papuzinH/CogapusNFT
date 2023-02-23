@@ -25,6 +25,7 @@
     position: absolute;
     top: 0;
     max-width: 1080px;
+    padding: 0 2em;
     z-index: 2;
 }
 
@@ -50,3 +51,24 @@
 }
 
 .cogo {position: absolute; z-index: 0; width: 25%; border-radius:50px; right: 5%; top: 5%;}
+
+@media screen and (max-width: 768px) {
+    .faq_container {
+        height: fit-content;
+    }
+    .faq_content h1 {
+        margin-top: 0;
+        font-size: 40px;
+    }
+.faq_container h2 {
+    margin: 30px 0 10px 0;
+}
+    .faq_container p {
+        margin-top: 0;
+    }
+
+    .faq_content{
+        position: relative;
+        padding: 40px 20px 250px 20px;
+    }
+}

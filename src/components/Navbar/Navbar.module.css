@@ -13,6 +13,9 @@ header {
 	justify-content: space-between;
 	color: #fff;
     padding: 1em 2em;
+    top: -100px;
+    transition: 0.2s;
+    position: relative;
 }
 
 .navbar_active {
@@ -24,13 +27,16 @@ header {
 	justify-content: space-between;
 	color: #fff;
     padding: 1em 2em;
+    top: 0;
+    position: relative;
+    transition: 0.2s;
 }
 
 .logo {
     width: 20%;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
 }
 .navbar img {
 	width: 60%;
@@ -62,5 +68,90 @@ header {
 .wallet_button {
     width: 20%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+}
+.menu_btn {
+    display: none;
+}
+
+.logo_mb {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+    .navbar_items {
+        display: none;
+    }
+    .wallet_button {
+        display: none;
+        width: 40%;
+    }
+    .logo_mb {
+        display: block;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 20px;
+    }
+    .logo_mb a {
+        width: 100%;
+    }
+    .menu_btn {
+        display: block;
+        width: 30px;
+        height: 30px;
+        padding-right: 20px;
+    }
+    .menu_btn img {
+        width: 100%;
+        height: 100%;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .menu_mb {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu_mb ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+    }
+    .menu_mb ul li {
+        margin: 20px 0;
+    }
+    .menu_mb .wallet_button {
+        display: flex;
+        justify-content: center;
+    } 
+    .close_btn {
+        width: 25px;
+        position: absolute;
+        top: 20px;
+        right: 22px;
+    }
+    .close_btn img {
+        width: 100%;
+        height: 100%;
+    }
 }

@@ -1,6 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import GifLoader from "../../public/assets/gif_loader.gif";
@@ -9,10 +7,11 @@ import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 export default function MintConfirmed(props) {
 	const [open, setOpen] = React.useState(true);
-	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
 	return (
+		<>
+		<div className={styles.mint_overlay}></div>
 		<Modal
 			open={open}
 			onClose={handleClose}
@@ -37,5 +36,6 @@ export default function MintConfirmed(props) {
 				</Typography>
 			</div>
 		</Modal>
+		</>
 	);
 }
